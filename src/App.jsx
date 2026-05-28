@@ -169,8 +169,8 @@ export default function App() {
   return (
     <div style={{
       fontFamily: "'DM Mono', 'Courier New', monospace",
-      background: "#0a0d12",
-      color: "#e2e8f0",
+      background: "#ffffff",
+      color: "#0f172a",
       minHeight: "100vh",
       padding: "0",
     }}>
@@ -179,7 +179,7 @@ export default function App() {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #0a0d12; }
-        ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 2px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
         .tab-btn { background: none; border: none; cursor: pointer; transition: all 0.2s; }
         .tab-btn:hover { opacity: 0.8; }
         .row-hover:hover { background: rgba(255,255,255,0.03) !important; cursor: pointer; }
@@ -197,12 +197,12 @@ export default function App() {
 
       {/* Header */}
       <div style={{
-        borderBottom: "1px solid #1a2030",
+        borderBottom: "1px solid #e2e8f0",
         padding: "16px 32px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        background: "#0d1117",
+        background: "#f8fafc",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div style={{
@@ -213,10 +213,10 @@ export default function App() {
             fontSize: "14px", fontWeight: "700",
           }}>P</div>
           <div>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "15px", fontWeight: "700", letterSpacing: "0.02em", color: "#fff" }}>
+            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "15px", fontWeight: "700", letterSpacing: "0.02em", color: "#0f172a" }}>
               PeopleStrong Campaign Intelligence Agent
             </div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginTop: "1px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginTop: "1px" }}>
               POWERED BY CLAUDE · LINKEDIN · META · HUBSPOT
             </div>
           </div>
@@ -224,14 +224,14 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
             <div className="pulse" style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#00d4aa" }} />
-            <span style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.06em" }}>LIVE · Last sync 4 min ago</span>
+            <span style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.06em" }}>LIVE · Last sync 4 min ago</span>
           </div>
-          <div style={{ fontSize: "11px", color: "#4a5568" }}>{dailyDigest.date}</div>
+          <div style={{ fontSize: "11px", color: "#94a3b8" }}>{dailyDigest.date}</div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div style={{ borderBottom: "1px solid #1a2030", padding: "0 32px", background: "#0d1117", display: "flex", gap: "0" }}>
+      <div style={{ borderBottom: "1px solid #e2e8f0", padding: "0 32px", background: "#f8fafc", display: "flex", gap: "0" }}>
         {[
           { id: "digest", label: "DAILY DIGEST" },
           { id: "campaigns", label: "CAMPAIGNS" },
@@ -265,21 +265,21 @@ export default function App() {
             {/* KPI Row */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "12px", marginBottom: "24px" }}>
               {[
-                { label: "TOTAL SPEND", value: fmtINR(dailyDigest.totalSpend), sub: `of ${fmtINR(dailyDigest.totalBudget)} budget`, color: "#e2e8f0" },
-                { label: "LEADS (7D)", value: dailyDigest.weeklyLeads, sub: "across all channels", color: "#e2e8f0" },
+                { label: "TOTAL SPEND", value: fmtINR(dailyDigest.totalSpend), sub: `of ${fmtINR(dailyDigest.totalBudget)} budget`, color: "#0f172a" },
+                { label: "LEADS (7D)", value: dailyDigest.weeklyLeads, sub: "across all channels", color: "#0f172a" },
                 { label: "MQLS (7D)", value: dailyDigest.weeklyMQLs, sub: `${((dailyDigest.weeklyMQLs / dailyDigest.weeklyLeads) * 100).toFixed(0)}% MQL rate`, color: "#0084ff" },
                 { label: "SQLS (7D)", value: dailyDigest.weeklySQLs, sub: `${((dailyDigest.weeklySQLs / dailyDigest.weeklyMQLs) * 100).toFixed(0)}% SQL rate`, color: "#00d4aa" },
                 { label: "PIPELINE (7D)", value: fmtINR(dailyDigest.weeklyPipeline), sub: "influenced (W-shaped)", color: "#f5a623" },
               ].map((k, i) => (
                 <div key={i} style={{
-                  background: "#0d1117",
-                  border: "1px solid #1a2030",
+                  background: "#f8fafc",
+                  border: "1px solid #e2e8f0",
                   borderRadius: "8px",
                   padding: "16px",
                 }}>
-                  <div style={{ fontSize: "9px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "8px" }}>{k.label}</div>
+                  <div style={{ fontSize: "9px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "8px" }}>{k.label}</div>
                   <div style={{ fontSize: "22px", fontFamily: "'Syne', sans-serif", fontWeight: "700", color: k.color }}>{k.value}</div>
-                  <div style={{ fontSize: "10px", color: "#4a5568", marginTop: "4px" }}>{k.sub}</div>
+                  <div style={{ fontSize: "10px", color: "#94a3b8", marginTop: "4px" }}>{k.sub}</div>
                 </div>
               ))}
             </div>
@@ -287,8 +287,8 @@ export default function App() {
             {/* Actions + Budget */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
               {/* Agent Actions */}
-              <div style={{ background: "#0d1117", border: "1px solid #1a2030", borderRadius: "8px", padding: "20px" }}>
-                <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "16px" }}>
+              <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "20px" }}>
+                <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "16px" }}>
                   AGENT ACTIONS TODAY
                 </div>
                 {dailyDigest.actions.map((a, i) => {
@@ -302,15 +302,15 @@ export default function App() {
                       borderBottom: i < dailyDigest.actions.length - 1 ? "1px solid #1a2030" : "none",
                     }}>
                       <div style={{ color: colorMap[a.type], fontSize: "14px", minWidth: "18px", marginTop: "1px" }}>{iconMap[a.type]}</div>
-                      <div style={{ fontSize: "11px", color: "#94a3b8", lineHeight: "1.5" }}>{a.text}</div>
+                      <div style={{ fontSize: "11px", color: "#64748b", lineHeight: "1.5" }}>{a.text}</div>
                     </div>
                   );
                 })}
               </div>
 
               {/* Budget Distribution */}
-              <div style={{ background: "#0d1117", border: "1px solid #1a2030", borderRadius: "8px", padding: "20px" }}>
-                <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "16px" }}>
+              <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "20px" }}>
+                <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.1em", marginBottom: "16px" }}>
                   BUDGET PACING BY CAMPAIGN
                 </div>
                 {campaigns.map((c, i) => {
@@ -319,12 +319,12 @@ export default function App() {
                   return (
                     <div key={i} style={{ marginBottom: "12px" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                        <div style={{ fontSize: "10px", color: "#94a3b8", maxWidth: "70%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        <div style={{ fontSize: "10px", color: "#64748b", maxWidth: "70%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                           {c.name.split("_").slice(0, 3).join(" · ")}
                         </div>
                         <div style={{ fontSize: "10px", color: sc.color }}>{pct}%</div>
                       </div>
-                      <div style={{ height: "4px", background: "#1a2030", borderRadius: "2px" }}>
+                      <div style={{ height: "4px", background: "#e2e8f0", borderRadius: "2px" }}>
                         <div style={{
                           height: "100%",
                           width: `${Math.min(pct, 100)}%`,
@@ -344,19 +344,19 @@ export default function App() {
         {/* CAMPAIGNS TAB */}
         {activeTab === "campaigns" && (
           <div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "16px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "16px" }}>
               5 ACTIVE CAMPAIGNS · 1 PAUSED BY AGENT · SORTED BY SQL RATE
             </div>
-            <div style={{ border: "1px solid #1a2030", borderRadius: "8px", overflow: "hidden" }}>
+            <div style={{ border: "1px solid #e2e8f0", borderRadius: "8px", overflow: "hidden" }}>
               {/* Table Header */}
               <div style={{
                 display: "grid",
                 gridTemplateColumns: "2.5fr 80px 80px 80px 70px 70px 80px 100px 100px",
                 padding: "10px 16px",
-                background: "#0d1117",
-                borderBottom: "1px solid #1a2030",
+                background: "#f8fafc",
+                borderBottom: "1px solid #e2e8f0",
                 fontSize: "9px",
-                color: "#4a5568",
+                color: "#94a3b8",
                 letterSpacing: "0.08em",
                 gap: "8px",
               }}>
@@ -382,7 +382,7 @@ export default function App() {
                         display: "grid",
                         gridTemplateColumns: "2.5fr 80px 80px 80px 70px 70px 80px 100px 100px",
                         padding: "12px 16px",
-                        borderBottom: "1px solid #1a2030",
+                        borderBottom: "1px solid #e2e8f0",
                         fontSize: "11px",
                         gap: "8px",
                         alignItems: "center",
@@ -391,13 +391,13 @@ export default function App() {
                       }}
                     >
                       <div>
-                        <div style={{ fontSize: "11px", color: "#e2e8f0", fontFamily: "'DM Mono', monospace" }}>
+                        <div style={{ fontSize: "11px", color: "#0f172a", fontFamily: "'DM Mono', monospace" }}>
                           {c.name.length > 34 ? c.name.slice(0, 34) + "…" : c.name}
                         </div>
-                        <div style={{ fontSize: "9px", color: "#4a5568", marginTop: "2px" }}>{c.channel} · {c.product}</div>
+                        <div style={{ fontSize: "9px", color: "#94a3b8", marginTop: "2px" }}>{c.channel} · {c.product}</div>
                       </div>
-                      <div style={{ textAlign: "right", color: "#94a3b8" }}>{fmtINR(c.spend)}</div>
-                      <div style={{ textAlign: "right", color: "#94a3b8" }}>{c.leads}</div>
+                      <div style={{ textAlign: "right", color: "#64748b" }}>{fmtINR(c.spend)}</div>
+                      <div style={{ textAlign: "right", color: "#64748b" }}>{c.leads}</div>
                       <div style={{ textAlign: "right", color: "#0084ff" }}>{c.mqls}</div>
                       <div style={{ textAlign: "right", color: "#00d4aa" }}>{c.sqls}</div>
                       <div style={{ textAlign: "right", color: c.sqlRate > 30 ? "#00d4aa" : c.sqlRate < 15 ? "#ff6b35" : "#94a3b8", fontWeight: "500" }}>
@@ -421,7 +421,7 @@ export default function App() {
                       <div style={{
                         padding: "12px 16px",
                         background: "rgba(0,132,255,0.05)",
-                        borderBottom: "1px solid #1a2030",
+                        borderBottom: "1px solid #e2e8f0",
                         borderLeft: "3px solid #0084ff",
                         display: "flex",
                         gap: "10px",
@@ -430,7 +430,7 @@ export default function App() {
                         <div style={{ fontSize: "11px", color: "#0084ff", marginTop: "1px" }}>✦</div>
                         <div>
                           <div style={{ fontSize: "9px", color: "#0084ff", letterSpacing: "0.08em", marginBottom: "4px" }}>AGENT INSIGHT</div>
-                          <div style={{ fontSize: "11px", color: "#94a3b8", lineHeight: "1.6" }}>{c.aiFlag}</div>
+                          <div style={{ fontSize: "11px", color: "#64748b", lineHeight: "1.6" }}>{c.aiFlag}</div>
                         </div>
                       </div>
                     )}
@@ -438,7 +438,7 @@ export default function App() {
                 );
               })}
             </div>
-            <div style={{ fontSize: "10px", color: "#4a5568", marginTop: "10px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", marginTop: "10px" }}>
               ↑ Click any row to expand agent insight
             </div>
           </div>
@@ -448,9 +448,9 @@ export default function App() {
         {activeTab === "creative" && (
           <div>
             <div style={{ marginBottom: "20px" }}>
-              <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "4px" }}>CREATIVE REFRESH TRIGGER</div>
+              <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "4px" }}>CREATIVE REFRESH TRIGGER</div>
               <div style={{
-                background: "#0d1117",
+                background: "#f8fafc",
                 border: "1px solid #f5a623",
                 borderRadius: "8px",
                 padding: "14px 16px",
@@ -460,25 +460,25 @@ export default function App() {
               }}>
                 <div style={{ color: "#f5a623", fontSize: "14px" }}>⚠</div>
                 <div>
-                  <div style={{ fontSize: "11px", color: "#e2e8f0", marginBottom: "3px" }}>
+                  <div style={{ fontSize: "11px", color: "#0f172a", marginBottom: "3px" }}>
                     IND_Meta_Payroll_TOFU — CTR dropped to 0.9% (benchmark: 1.6%)
                   </div>
-                  <div style={{ fontSize: "10px", color: "#4a5568" }}>
+                  <div style={{ fontSize: "10px", color: "#94a3b8" }}>
                     Running 18 days · Ad fatigue detected · 3 variants generated by agent
                   </div>
                 </div>
               </div>
             </div>
 
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "14px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "14px" }}>
               AGENT-GENERATED CREATIVE VARIANTS · FOR HUMAN REVIEW BEFORE LAUNCH
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px", marginBottom: "20px" }}>
               {creativeVariants[0].variants.map((v) => (
                 <div key={v.id} className="variant-card" style={{
-                  background: "#0d1117",
-                  border: "1px solid #1a2030",
+                  background: "#f8fafc",
+                  border: "1px solid #e2e8f0",
                   borderRadius: "8px",
                   padding: "18px",
                 }}>
@@ -491,17 +491,17 @@ export default function App() {
                       fontSize: "9px",
                       letterSpacing: "0.06em",
                     }}>{v.id}</span>
-                    <span style={{ fontSize: "9px", color: "#4a5568" }}>{v.angle}</span>
+                    <span style={{ fontSize: "9px", color: "#94a3b8" }}>{v.angle}</span>
                   </div>
                   <div style={{
                     fontSize: "13px",
                     fontFamily: "'Syne', sans-serif",
                     fontWeight: "700",
-                    color: "#fff",
+                    color: "#0f172a",
                     lineHeight: "1.4",
                     marginBottom: "10px",
                   }}>{v.headline}</div>
-                  <div style={{ fontSize: "11px", color: "#94a3b8", lineHeight: "1.6", marginBottom: "14px" }}>{v.body}</div>
+                  <div style={{ fontSize: "11px", color: "#64748b", lineHeight: "1.6", marginBottom: "14px" }}>{v.body}</div>
                   <div style={{
                     background: "rgba(0,212,170,0.08)",
                     border: "1px solid rgba(0,212,170,0.2)",
@@ -528,12 +528,12 @@ export default function App() {
             </div>
 
             <div style={{
-              background: "#0d1117",
-              border: "1px solid #1a2030",
+              background: "#f8fafc",
+              border: "1px solid #e2e8f0",
               borderRadius: "8px",
               padding: "16px",
               fontSize: "10px",
-              color: "#4a5568",
+              color: "#94a3b8",
               lineHeight: "1.8",
             }}>
               <span style={{ color: "#0084ff" }}>✦ Agent context used:</span> PeopleStrong brand voice guidelines · Payroll product page copy · Top 3 performing historical ads for Payroll · Competitor messaging analysis · ICP job titles and pain points (HR Head, CHRO, CTO in 500–2000 employee BFSI/Manufacturing)
@@ -544,7 +544,7 @@ export default function App() {
         {/* FLOW TAB */}
         {activeTab === "routing" && (
           <div>
-            <div style={{ fontSize: "10px", color: "#4a5568", letterSpacing: "0.08em", marginBottom: "20px" }}>
+            <div style={{ fontSize: "10px", color: "#94a3b8", letterSpacing: "0.08em", marginBottom: "20px" }}>
               END-TO-END AGENT FLOW
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
@@ -586,11 +586,11 @@ export default function App() {
                       flexShrink: 0,
                       zIndex: 1,
                     }}>{s.step}</div>
-                    {i < 3 && <div style={{ width: "2px", flex: 1, background: "#1a2030", minHeight: "20px" }} />}
+                    {i < 3 && <div style={{ width: "2px", flex: 1, background: "#e2e8f0", minHeight: "20px" }} />}
                   </div>
                   <div style={{
-                    background: "#0d1117",
-                    border: "1px solid #1a2030",
+                    background: "#f8fafc",
+                    border: "1px solid #e2e8f0",
                     borderRadius: "8px",
                     padding: "16px 20px",
                     marginLeft: "12px",
@@ -599,7 +599,7 @@ export default function App() {
                   }}>
                     <div style={{ fontSize: "10px", color: s.color, letterSpacing: "0.1em", marginBottom: "10px" }}>{s.title}</div>
                     {s.items.map((item, j) => (
-                      <div key={j} style={{ fontSize: "11px", color: "#94a3b8", padding: "4px 0", display: "flex", gap: "8px" }}>
+                      <div key={j} style={{ fontSize: "11px", color: "#64748b", padding: "4px 0", display: "flex", gap: "8px" }}>
                         <span style={{ color: s.color, opacity: 0.6 }}>›</span>
                         {item}
                       </div>
